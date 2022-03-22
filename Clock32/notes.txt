@@ -1,0 +1,43 @@
+
+
+ESP32 240MHz, 320 KB RAM, 1 MB Flash
+
+Chip is ESP32-D0WDQ6 (revision 1)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: 3c:71:bf:b2:99:40
+
+Auto-detected Flash size: 4MB
+Flash will be erased from 0x00001000 to 0x00005fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Flash will be erased from 0x0000e000 to 0x0000ffff...
+Flash will be erased from 0x00010000 to 0x000e5fff...
+
+
+Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
+RAM:   [==        ]  22.7% (used 74364 bytes from 327680 bytes)
+Flash: [=======   ]  68.1% (used 893128 bytes from 1310720 bytes)
+
+Heap Memory Available: 158428 bytes total. Largest free block: 68220 bytes.
+General RAM Available: 90208 bytes total. Largest free block: 40032 bytes.
+
+Card type: SD2
+Manufacturer ID: 0x1B
+OEM ID: SM
+Product: 00000
+Version: 1.0
+Serial number: 0xACE2E702
+Manufacturing date: 2/2012
+Volume is FAT32
+
+cherche "game over" avec les couleurs qui vont bien
+#2454: /gif/CONSOLES/MD_STR~1.GIF
+#2689: /gif/COMPUT~1/AM0A19~1.GIF
+#3646: /gif/ARCADE/AR42B4~1.GIF
+#36: /gif/XMAS/XM5874~1.GIF
+#442: /gif/PINBAL~1/PI5680~1.GIF
+oups... delay: -5
+#2760: /gif/COMPUT~1/AT9843~1.GIF
+
+plantage sur
+#2538: /gif/CONSOLES/NE294A~1.GIF

@@ -1,0 +1,48 @@
+
+
+
+
+				3.3	x-	-x	GND
+				EN	x-	-x	23		A		(VSPI)
+		input	36	x-	-x	22		SD_SS	(I2C)
+		input	39	x-	-x	(1)	TX0
+		input	34	x-	-x	(3)	RX0
+	MICRO		35	x-	-x	21		SD_MOSI	(I2C)
+SD_MISO			32	x-	-x	NC
+SD_SCK			33	x-	-x	19		B		(VSPI)
+	R1	(DAC)	25	x-	-x	18		E		(VSPI)
+	G1	(DAC)	26	x-	-x	5		C		(VSPI)
+	B1			27	x-	-x	17		D
+	R2	(SPI)	14	x-	-x	16		CLK
+	G2	(SPI)	12	x-	-x	4		LAT
+				GND	x-	-x	(0)				(WiFi)
+	B2	(SPI)	13	x-	-x	(2)				(WiFi)
+				x	x-	-x	15		OE		(SPI)
+				x	x-	-x	x
+				x	x-	-x	x
+				5V	x-	-x	x
+
+Lecteur de carte micro SD
+-------------------------
+#define SD_SS 22
+#define SD_SCK 33
+#define SD_MISO 32
+#define SD_MOSI 21
+
+
+Les panels / HUB75 E
+--------------------
+#define R1_PIN 25
+#define G1_PIN 26
+#define B1_PIN 27
+#define R2_PIN 14
+#define G2_PIN 12
+#define B2_PIN 13
+#define A_PIN 23
+#define B_PIN 19
+#define C_PIN 5
+#define D_PIN 17
+#define E_PIN -1 // required for 1/32 scan panels, like 64x64. Any available pin would do, i.e. IO32 ==> 18
+#define CLK_PIN 16
+#define LAT_PIN 4
+#define OE_PIN 15

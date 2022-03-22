@@ -1,0 +1,27 @@
+# Name,   Type, SubType, Offset,   Size, Flags
+nvs,       data, nvs,     0x009000,  0x005000,
+otadata,   data, ota,     0x00e000,  0x002000,
+app0,      app,  ota_0,   0x010000,  0x100000,
+app1,      app,  ota_1,   0x110000,  0x100000,
+#spiffs,    data, spiffs,  0x210000,  0x100000,
+#ffat,      data, fat,     0x310000,  0x0F0000
+ffat,      data, fat,     0x210000,  0x1F0000
+#                  MAX = 0x400000
+#
+#
+#phy_init, data, phy,     0x00e000,  0x001000,
+#
+# pio run -v -t uploadfs
+# platformio run -t uploadfs
+#
+# "/Users/sfardoux/.platformio/penv/bin/python" "/Users/sfardoux/.platformio/packages/tool-esptoolpy/esptool.py" --chip esp32 --port "/dev/cu.SLAB_USBtoUART" --baud 460800 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_size detect 2162688 .pio/build/esp32dev/spiffs.bin
+#
+# <PART_START+0x1000>
+#"/Users/sfardoux/.platformio/penv/bin/python" "/Users/sfardoux/.platformio/packages/tool-esptoolpy/esptool.py" --chip esp32 --port "/dev/cu.SLAB_USBtoUART" --baud 460800 write_flash 0x211000 filesystem.img
+
+# https://github.com/marcmerlin/esp32_fatfsimage
+# partition addr: 0x010000; size: 0x100000; label: app0
+# partition addr: 0x009000; size: 0x005000; label: nvs
+# partition addr: 0x00e000; size: 0x002000; label: otadata
+# partition addr: 0x110000; size: 0x001000; label: eeprom
+# partition addr: 0x111000; size: 0x2ef000; label: ffat
