@@ -10,6 +10,7 @@
 #include "ClockAnalog.hpp"
 #include "Solar.hpp"
 #include "AudioSpectrum.hpp"
+#include "TheAnim.hpp"
 
 GLOBAL_STATE globalState;
 FilesTools filesTools = FilesTools();
@@ -20,6 +21,7 @@ TheGif theGif = TheGif();
 ClockAnalog clockAnalog = ClockAnalog();
 Solar solar = Solar();
 AudioSpectrum audioSpectrum = AudioSpectrum();
+TheAnim theAnim = TheAnim();
 
 unsigned long stateStart;
 unsigned long stateDelayToChange;
@@ -74,6 +76,10 @@ void setup()
 	// solar.setup(45.55, -73.633);
 	audioSpectrum.setup(thePanel);
 
+	theAnim.setup(thePanel);
+	theAnim.setPosition("88:88:88");
+	theAnim.start("");
+
 	// launchNewGif();
 	launchNewClock();
 	// launchNewAudioSpectrum();
@@ -88,6 +94,7 @@ void loop()
 	yield();
 	thePanel.loop();
 	ntp.loop();
+	thePanel.dma_display->startWrite();
 	switch (globalState)
 	{
 	case GLOBAL_STATE::STATE_CLOCK:
@@ -122,6 +129,9 @@ void loop()
 	// stateStart = millis();
 
 	solar.loop();
+	String toDisplay = zeropad(ntp.timeZone.hour(), 2) + ":" + zeropad(ntp.timeZone.minute(), 2) + ":" + zeropad(ntp.timeZone.second(), 2);
+	theAnim.start(toDisplay);
+	theAnim.loop();
 
 	// audioSpectrum.isNoisy();
 	if (audioSpectrum.isNoisy())
@@ -133,6 +143,7 @@ void loop()
 	thePanel.dma_display->setTextColor(thePanel.dma_display->color565(255, 255, 255));
 	thePanel.dma_display->setCursor(0, 0);
 	thePanel.dma_display->print(lastFps);
+	thePanel.dma_display->endWrite();
 
 	countFps++;
 	if ((millis() - startFps) > 1000)

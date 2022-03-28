@@ -8,6 +8,7 @@ Ntp ::Ntp() {}
 
 void Ntp::setup()
 {
+	// setDebug(DEBUG, Serial);
 	setServer(NTP_SERVER_EU);
 	setInterval(NTP_REFRESH);
 	waitForSync(NTP_SYNC_TIMEOUT);

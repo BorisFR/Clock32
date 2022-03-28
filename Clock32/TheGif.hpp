@@ -3,9 +3,9 @@
 #define THE_GIF_HPP
 
 #include "Arduino.h"
-#include <AnimatedGIF.h>
-#include <FilesTools.hpp>
-#include <ThePanel.hpp>
+#include "AnimatedGIF.h"
+#include "FilesTools.hpp"
+#include "ThePanel.hpp"
 
 #define MAX_WEATHER_DURATION 0
 #define MAX_DISPLAY_GIF_TIME_SECONDS 6 * 10
