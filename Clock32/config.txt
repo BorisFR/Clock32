@@ -1,0 +1,56 @@
+####################################
+# votre date de naissance
+# pour l'horoscope, biorythmes, ...
+
+DAY_BIRTHDAY : 26
+MONTH_BIRTHDAY : 6
+YEAR_BIRTHDAY : 1967
+
+####################################
+# lieu de votre habitation
+# vous trouvez cette info là : https://www.google.fr/maps
+# utile pour lever/coucher de soleil
+
+LATITUDE : 50.633954
+LONGITUDE : 3.12954217
+
+####################################
+# votre installation WiFi
+# nom du réseau WiFi
+
+WIFI_SSID : xxx
+
+# mot de passe de votre WiFi
+
+WIFI_PASSWORD : xxx
+
+####################################
+# Serveur pour la synchro temps
+# permet la mise à l'heure de l'ESP32
+
+NTP_SERVER : europe.pool.ntp.org
+
+# Localisation de votre habitation
+# permet le réglage automatique 12 ou 24 heures, le fuseau horaire, ...
+
+LOCATION : Europe/Paris
+
+####################################
+# panneau led
+# mettre 'true' à RGB ou BGR et 'false' à l'autre.
+# au démarrage, le panneau affiche rouge, puis vert, puis bleu
+# si les couleurs ne sont pas bonnes, essayez le réglage inverse
+
+PANEL_RGB : false
+PANEL_RBG : true
+
+# si il y a du parasitage sur une partie des led, essayer de mettre 'true' à la place de 'false'
+# https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-I2S-DMA/issues/130
+
+PANEL_ CLKPHASE : false
+
+# réglage de l'éclairage maximale des leds
+# valeur de 0 (noir) à 255 (super lumineux)
+
+PANEL_MAX_BRIGHTNESS : 192
+
