@@ -13,8 +13,9 @@ void Ntp::setup()
 	setInterval(NTP_REFRESH);
 	waitForSync(NTP_SYNC_TIMEOUT);
 	Serial.println("UTC: " + UTC.dateTime());
-	timeZone.setLocation("Europe/Paris");
-	Serial.println("Local time: " + timeZone.dateTime());
+	if(!timeZone.setLocation("Europe/Paris")) {
+		timeZone.setPosix("CEST-02:00");
+	}	Serial.println("Local time: " + timeZone.dateTime());
 	timeZone.setDefault();
 }
 
