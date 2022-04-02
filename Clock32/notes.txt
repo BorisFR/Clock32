@@ -1,6 +1,6 @@
 
-
-ESP32 240MHz, 320 KB RAM, 1 MB Flash
+PLATFORM: Espressif 32 (3.5.0) > Espressif ESP32 Dev Module
+HARDWARE: ESP32 240MHz, 320KB RAM, 4MB Flash
 
 Chip is ESP32-D0WDQ6 (revision 1)
 Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
@@ -13,13 +13,25 @@ Flash will be erased from 0x00008000 to 0x00008fff...
 Flash will be erased from 0x0000e000 to 0x0000ffff...
 Flash will be erased from 0x00010000 to 0x000e5fff...
 
+*** ESP32-HUB75-MatrixPanel-I2S-DMA: Memory Allocations Complete ***
+Total memory that was reserved: 35 kB.
+... of which was used for the DMA Linked List(s): 3 kB.
 
 Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
+// SINGLE APP, OTA
 RAM:   [==        ]  22.9% (used 75156 bytes from 327680 bytes)
 Flash: [=======   ]  68.3% (used 894768 bytes from 1310720 bytes)
 
-Heap Memory Available: 148816 bytes total. Largest free block: 68220 bytes.
-General RAM Available: 80596 bytes total. Largest free block: 40032 bytes.
+// NO OTA
+RAM:   [==        ]  22.9% (used 75172 bytes from 327680 bytes)
+Flash: [====      ]  42.9% (used 899536 bytes from 2097152 bytes)
+
+// MY PARTITION :)
+RAM:   [==        ]  22.9% (used 75172 bytes from 327680 bytes)
+Flash: [==        ]  21.8% (used 899536 bytes from 4128768 bytes)
+
+Heap Memory Available: 148832 bytes total. Largest free block: 68220 bytes.
+General RAM Available: 80612 bytes total. Largest free block: 40032 bytes.
 
 Card type: SD2
 Manufacturer ID: 0x1B
