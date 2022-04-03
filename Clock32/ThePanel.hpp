@@ -7,6 +7,12 @@
 #include "ESP32-HUB75-MatrixPanel-I2S-DMA.h"
 #include "FastLED.h"
 
+enum class DISPLAY_COLOR_ORDER : uint8_t
+{
+	RGB = 0,
+	RBG = 1
+};
+
 #define R1_PIN 25
 #define G1_PIN 26
 #define B1_PIN 27
@@ -31,7 +37,7 @@ class ThePanel
 {
 public:
 	ThePanel();
-	uint8_t setup();
+	uint8_t setup(DISPLAY_COLOR_ORDER order);
 	void loop();
 	// void swapDisplayBuffers();
 	MatrixPanel_I2S_DMA *dma_display = nullptr;

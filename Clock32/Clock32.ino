@@ -1,11 +1,15 @@
 #include <EEPROM.h>
 #include "SPI.h"
 
+#define WITHOUT_WIFI 1
+
 #include "Enums.hpp"
 #include "FilesTools.hpp"
 #include "ThePanel.hpp"
+#ifndef WITHOUT_WIFI
 #include "MyWifi.hpp"
 #include "Ntp.hpp"
+#endif
 #include "TheGif.hpp"
 #include "ClockAnalog.hpp"
 #include "Solar.hpp"
@@ -15,8 +19,10 @@
 GLOBAL_STATE globalState;
 FilesTools filesTools = FilesTools();
 ThePanel thePanel = ThePanel();
+#ifndef WITHOUT_WIFI
 MyWifi myWifi = MyWifi();
 Ntp ntp = Ntp();
+#endif
 TheGif theGif = TheGif();
 ClockAnalog clockAnalog = ClockAnalog();
 Solar solar = Solar();
@@ -32,11 +38,13 @@ void setup()
 	delay(2000);
 	Serial.println("*** PIXEL 32 ***");
 
+#ifndef WITHOUT_WIFI
 	showBoot(10);
 	myWifi.setup();
 	showBoot(20);
 
 	ntp.setup();
+#endif
 
 	showBoot(105);
 
@@ -58,7 +66,7 @@ void setup()
 	// filesTools.openFileSD(26);
 	// showBoot(80);
 
-	if (thePanel.setup() == FAIL)
+	if (thePanel.setup(DISPLAY_COLOR_ORDER::RGB) == FAIL)
 	{
 		showBoot(90);
 		while (true)
@@ -72,16 +80,18 @@ void setup()
 	theGif.setup(filesTools, thePanel);
 
 	clockAnalog.setup(thePanel);
+#ifndef WITHOUT_WIFI
 	solar.setup(50.633954, 3.12954217, ntp.timeZone); // https://gml.noaa.gov/grad/solcalc/
 	// solar.setup(45.55, -73.633);
+#endif
 	audioSpectrum.setup(thePanel);
 
 	theAnim.setup(thePanel);
 	theAnim.setPosition("88:88:88");
 	theAnim.start("");
 
-	// launchNewGif();
-	launchNewClock();
+	launchNewGif();
+	// launchNewClock();
 	// launchNewAudioSpectrum();
 }
 
@@ -93,15 +103,19 @@ void loop()
 {
 	yield();
 	thePanel.loop();
+#ifndef WITHOUT_WIFI
 	ntp.loop();
+#endif
 	thePanel.dma_display->startWrite();
 	switch (globalState)
 	{
 	case GLOBAL_STATE::STATE_CLOCK:
+#ifndef WITHOUT_WIFI
 		if (clockAnalog.loop(ntp.timeZone) == OK)
 		{
 			stateDelayToChange = 0;
 		}
+#endif
 		break;
 	case GLOBAL_STATE::STATE_WEATHER:
 		break;
@@ -128,12 +142,17 @@ void loop()
 	// no change: DEBUG!
 	// stateStart = millis();
 
+#ifndef WITHOUT_WIFI
 	solar.loop();
+#endif
+	/*
 	String toDisplay = zeropad(ntp.timeZone.hour(), 2) + ":" + zeropad(ntp.timeZone.minute(), 2) + ":" + zeropad(ntp.timeZone.second(), 2);
 	theAnim.start(toDisplay);
 	theAnim.loop();
+	*/
 
 	// audioSpectrum.isNoisy();
+	/*
 	if (audioSpectrum.isNoisy())
 		thePanel.dma_display->fillRect(0, 0, 23, 7, 120, 0, 0);
 	else
@@ -143,7 +162,8 @@ void loop()
 	thePanel.dma_display->setTextColor(thePanel.dma_display->color565(255, 255, 255));
 	thePanel.dma_display->setCursor(0, 0);
 	thePanel.dma_display->print(lastFps);
-	thePanel.dma_display->endWrite();
+	*/
+	//thePanel.dma_display->endWrite();
 
 	countFps++;
 	if ((millis() - startFps) > 1000)
@@ -194,9 +214,13 @@ void launchNewGif()
 void launchNewClock()
 {
 	// showBoot(120);
-	stateDelayToChange = clockAnalog.start();
 	globalState = GLOBAL_STATE::STATE_CLOCK;
 	stateStart = millis();
+#ifndef WITHOUT_WIFI
+	stateDelayToChange = clockAnalog.start();
+#else
+	stateDelayToChange = 0;
+#endif
 }
 
 void launchNewWeather()

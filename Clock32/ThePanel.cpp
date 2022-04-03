@@ -8,12 +8,22 @@ ThePanel::ThePanel() {}
 // ***********************************************************************************************
 
 // initialize the DMD & gif animator
-uint8_t ThePanel::setup()
+uint8_t ThePanel::setup(DISPLAY_COLOR_ORDER order)
 {
+	HUB75_I2S_CFG::i2s_pins _pins;
+	switch (order)
+	{
+	case DISPLAY_COLOR_ORDER::RGB:
+		_pins = {R1_PIN, G1_PIN, B1_PIN, R2_PIN, G2_PIN, B2_PIN, A_PIN, B_PIN, C_PIN, D_PIN, E_PIN, LAT_PIN, OE_PIN, CLK_PIN};
+		break;
+	case DISPLAY_COLOR_ORDER::RBG:
+		_pins = {R1_PIN, B1_PIN, G1_PIN, R2_PIN, B2_PIN, G2_PIN, A_PIN, B_PIN, C_PIN, D_PIN, E_PIN, LAT_PIN, OE_PIN, CLK_PIN};
+		break;
+	}
 	// RGB
 	// HUB75_I2S_CFG::i2s_pins _pins = {R1_PIN, G1_PIN, B1_PIN, R2_PIN, G2_PIN, B2_PIN, A_PIN, B_PIN, C_PIN, D_PIN, E_PIN, LAT_PIN, OE_PIN, CLK_PIN};
 	// RBG
-	HUB75_I2S_CFG::i2s_pins _pins = {R1_PIN, B1_PIN, G1_PIN, R2_PIN, B2_PIN, G2_PIN, A_PIN, B_PIN, C_PIN, D_PIN, E_PIN, LAT_PIN, OE_PIN, CLK_PIN};
+	// HUB75_I2S_CFG::i2s_pins _pins = {R1_PIN, B1_PIN, G1_PIN, R2_PIN, B2_PIN, G2_PIN, A_PIN, B_PIN, C_PIN, D_PIN, E_PIN, LAT_PIN, OE_PIN, CLK_PIN};
 	HUB75_I2S_CFG mxconfig(
 		PANEL_RES_X, // width
 		PANEL_RES_Y, // height

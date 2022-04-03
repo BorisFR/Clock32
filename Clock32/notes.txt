@@ -30,8 +30,14 @@ Flash: [====      ]  42.9% (used 899536 bytes from 2097152 bytes)
 RAM:   [==        ]  22.9% (used 75172 bytes from 327680 bytes)
 Flash: [==        ]  21.8% (used 899536 bytes from 4128768 bytes)
 
-Heap Memory Available: 148832 bytes total. Largest free block: 68220 bytes.
-General RAM Available: 80612 bytes total. Largest free block: 40032 bytes.
+Heap Memory Available: 148500 bytes total. Largest free block: 68220 bytes.
+General RAM Available: 80280 bytes total. Largest free block: 40032 bytes.
+
+NO WIFI !!!
+RAM:   [==        ]  15.2% (used 49756 bytes from 327680 bytes)
+Flash: [=         ]   9.1% (used 374402 bytes from 4128768 bytes)
+Heap Memory Available: 243824 bytes total. Largest free block: 85332 bytes.
+General RAM Available: 158492 bytes total. Largest free block: 74412 bytes.
 
 Card type: SD2
 Manufacturer ID: 0x1B
@@ -53,6 +59,9 @@ oups... delay: -5
 
 plantage sur
 #2538: /gif/CONSOLES/NE294A~1.GIF
+#2064: /gif/CONSOLES/GBA_MA~1.GIF
+#311: /gif/QUIZ_FR/QUA55C~1.GIF
+#1463: /gif/OTHER/SIGN_E~4.GIF
 
 Running event (#1) set for dimanche, 27-mar-2022 02:05:10 UTC
 Querying europe.pool.ntp.org ... Received data:
