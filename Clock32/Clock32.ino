@@ -1,7 +1,7 @@
 #include <EEPROM.h>
 #include "SPI.h"
 
-#define WITHOUT_WIFI 1
+//#define WITHOUT_WIFI 1
 
 #include "Enums.hpp"
 #include "FilesTools.hpp"

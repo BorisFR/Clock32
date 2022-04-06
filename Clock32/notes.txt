@@ -97,3 +97,83 @@ Querying europe.pool.ntp.org ... Received data:
 success (round trip 1342 ms)
 Received time: dimanche, 27-mar-22 05:05:09.508 UTC (internal clock was 161 ms fast)
 Set event (#1) to trigger on: dimanche, 27-mar-2022 08:05:09 UTC
+
+
+␛[0;32mI (9) boot: ESP-IDF v2.0-3-gbef9896 2nd stage bootloader␛[0m
+␛[0;32mI (10) boot: compile time 05:59:45␛[0m
+␛[0;32mI (10) boot: Enabling RNG early entropy source...␛[0m
+␛[0;32mI (22) boot: SPI Speed      : 40MHz␛[0m
+␛[0;32mI (35) boot: SPI Mode       : DIO␛[0m
+␛[0;32mI (48) boot: SPI Flash Size : 4MB␛[0m
+␛[0;32mI (60) boot: Partition Table:␛[0m
+␛[0;32mI (71) boot: ## Label            Usage          Type ST Offset   Length␛[0m
+␛[0;32mI (93) boot:  0 phy_init         RF data          01 01 0000f000 00001000␛[0m
+␛[0;32mI (116) boot:  1 otadata          OTA data         01 00 00010000 00002000␛[0m
+␛[0;32mI (140) boot:  2 nvs              WiFi data        01 02 00012000 0000e000␛[0m
+␛[0;32mI (163) boot:  3 at_customize     unknown          40 00 00020000 000e0000␛[0m
+␛[0;32mI (186) boot:  4 ota_0            OTA app          00 10 00100000 00180000␛[0m
+␛[0;32mI (209) boot:  5 ota_1            OTA app          00 11 00280000 00180000␛[0m
+␛[0;32mI (233) boot: End of partition table␛[0m
+␛[0;32mI (246) boot: Disabling RNG early entropy source...␛[0m
+␛[0;32mI (263) boot: Loading app partition at offset 00100000␛[0m
+␛[0;32mI (1438) boot: segment 0: paddr=0x00100018 vaddr=0x00000000 size=0x0ffe8 ( 65512) ␛[0m
+␛[0;32mI (1439) boot: segment 1: paddr=0x00110008 vaddr=0x3f400010 size=0x1c5f0 (116208) map␛[0m
+␛[0;32mI (1455) boot: segment 2: paddr=0x0012c600 vaddr=0x3ffb0000 size=0x0215c (  8540) load␛[0m
+␛[0;32mI (1486) boot: segment 3: paddr=0x0012e764 vaddr=0x40080000 size=0x00400 (  1024) load␛[0m
+␛[0;32mI (1509) boot: segment 4: paddr=0x0012eb6c vaddr=0x40080400 size=0x1b028 (110632) load␛[0m
+␛[0;32mI (1588) boot: segment 5: paddr=0x00149b9c vaddr=0x400c0000 size=0x00034 (    52) load␛[0m
+␛[0;32mI (1589) boot: segment 6: paddr=0x00149bd8 vaddr=0x00000000 size=0x06430 ( 25648) ␛[0m
+␛[0;32mI (1605) boot: segment 7: paddr=0x00150010 vaddr=0x400d0018 size=0x7a56c (501100) map␛[0m
+␛[0;32mI (1633) heap_alloc_caps: Initializing. RAM available for dynamic allocation:␛[0m
+␛[0;32mI (1655) heap_alloc_caps: At 3FFBA6B8 len 00025948 (150 KiB): DRAM␛[0m
+␛[0;32mI (1676) heap_alloc_caps: At 3FFE8000 len 00018000 (96 KiB): D/IRAM␛[0m
+␛[0;32mI (1698) heap_alloc_caps: At 4009B428 len 00004BD8 (18 KiB): IRAM␛[0m
+␛[0;32mI (1718) cpu_start: Pro cpu up.␛[0m
+␛[0;32mI (1730) cpu_start: Single core mode␛[0m
+␛[0;32mI (1743) cpu_start: Pro cpu start user code␛[0m
+␛[0;32mI (1804) cpu_start: Starting scheduler on PRO CPU.␛[0m
+␛[0;32mI (2043) uart: queue free spaces: 10␛[0m
+Bin version:0.10.0
+I (2045) wifi: wifi firmware version: c604573
+I (2045) wifi: config NVS flash: enabled
+I (2046) wifi: config nano formating: disabled
+I (2054) wifi: Init dynamic tx buffer num: 32
+I (2055) wifi: wifi driver task: 3ffc4eac, prio:23, stack:3584
+I (2060) wifi: Init static rx buffer num: 10
+I (2064) wifi: Init dynamic rx buffer num: 0
+I (2068) wifi: Init rx ampdu len mblock:7
+I (2072) wifi: Init lldesc rx ampdu entry mblock:4
+I (2077) wifi: wifi power manager task: 0x3ffca254 prio: 21 stack: 2560
+I (2083) wifi: wifi timer task: 3ffcb2d4, prio:22, stack:3584
+␛[0;31mE (2088) phy_init: PHY data partition validated␛[0m
+␛[0;32mI (2110) phy: phy_version: 329, Feb 22 2017, 15:58:07, 0, 0␛[0m
+I (2111) wifi: mode : softAP (c8:c9:a3:d2:40:55)
+I (2114) wifi: mode : sta (c8:c9:a3:d2:40:54) + softAP (c8:c9:a3:d2:40:55)
+I (2117) wifi: mode : softAP (c8:c9:a3:d2:40:55)
+
+CONFIGURATION: https://docs.platformio.org/page/boards/espressif32/az-delivery-devkit-v4.html
+PLATFORM: Espressif 32 (3.5.0) > AZ-Delivery ESP-32 Dev Kit C V4
+HARDWARE: ESP32 240MHz, 520KB RAM, 16MB Flash
+DEBUG: Current (esp-prog) External (esp-prog, iot-bus-jtag, jlink, minimodule, olimex-arm-usb-ocd, olimex-arm-usb-ocd-h, olimex-arm-usb-tiny-h, olimex-jtag-tiny, tumpa)
+PACKAGES: 
+ - framework-arduinoespressif32 @ 3.10006.210326 (1.0.6) 
+ - tool-esptoolpy @ 1.30100.210531 (3.1.0) 
+ - tool-mkspiffs @ 2.230.0 (2.30) 
+ - toolchain-xtensa32 @ 2.50200.97 (5.2.0)
+Converting Clock32.ino
+LDF: Library Dependency Finder -> https://bit.ly/configure-pio-ldf
+LDF Modes: Finder ~ chain, Compatibility ~ soft
+
+RAM:   [=         ]  14.1% (used 75164 bytes from 532480 bytes)
+Flash: [=======   ]  68.5% (used 897960 bytes from 1310720 bytes)
+
+Chip is ESP32-D0WDQ6 (revision 1)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: c8:c9:a3:d2:40:54
+
+Auto-detected Flash size: 4MB
+Flash will be erased from 0x00001000 to 0x00005fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Flash will be erased from 0x0000e000 to 0x0000ffff...
+Flash will be erased from 0x00010000 to 0x000ebfff...
